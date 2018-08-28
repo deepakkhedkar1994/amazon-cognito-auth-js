@@ -1,6 +1,6 @@
 {
-  "name": "amazon-cognito-auth-js",
-  "description": "Amazon Cognito Auth JavaScript SDK",
+  "name": "amazon-cognito-auth-js-promises",
+  "description": "Promise wrappers for Amazon Cognito Auth JavaScript SDK",
   "version": "1.2.4",
   "author": {
     "name": "Amazon Web Services",
@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/aws/amazon-cognito-auth-js.git"
+    "url": "https://github.com/chamathsilva/amazon-cognito-auth-js.git "
   },
   "license": "Apache-2.0",
   "licenses": [
@@ -50,6 +50,7 @@
     "babel-core": "^6.13.2",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.23.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-preset-es2015": "^6.22.0",
     "cross-env": "^3.2.4",
     "eslint": "^3.3.1",

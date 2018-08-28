@@ -331,7 +331,8 @@
         // const boundOnFailure = (this.onFailure).bind(this);
         // this.makePOSTRequest(header, body, url, boundOnSuccess, boundOnFailure);
         const _response =  await this.makePOSTRequest(header, body, url);
-        return _response
+        await this.onSuccessExchangeForToken(_response)
+        return this.signInUserSession;
       }
       return null;
     }
@@ -561,7 +562,9 @@
      * @param {function} onFailure callback
      * @returns {void}
      */
-    async makePOSTRequest(header, body, url, onSuccess = null, onFailure = null) {
+    makePOSTRequest(header, body, url, onSuccess = null, onFailure = null) {
+      return new Promise( (resolve, reject)=> {
+        
       // This is a sample server that supports CORS.
       const xhr = this.createCORSRequest(this.getCognitoConstants().POST, url);
       let bodyString = '';
@@ -582,14 +585,18 @@
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
             // onSuccess(xhr.responseText);
-            return xhr.responseText
+            // return xhr.responseText
+            resolve(xhr.responseText)
           } else {
             // onFailure(xhr.responseText);
-            throw xhr.responseText
+            // throw xhr.responseText
+            reject(xhr.responseText)
           }
         }
       };
-    }
+    })
+  }
+    
   
     /**
      * Create the XHR object

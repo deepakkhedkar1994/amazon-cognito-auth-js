@@ -36,6 +36,7 @@ var config = {
         loader: 'babel',
         query: {
           presets: ['es2015'],
+          plugins: ["transform-async-to-generator"],
           cacheDirectory: './node_modules/.cache/babel'
         }
       }
