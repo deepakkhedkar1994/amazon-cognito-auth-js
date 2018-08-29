@@ -1161,8 +1161,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @returns {void}
 	     */
 
-	    // Todo - Chamath - done-2
-
 	  }, {
 	    key: 'getSession',
 	    value: function () {
@@ -1248,7 +1246,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return getSession;
 	    }()
 
-	    // Todo - Chamath - done 2
+	    /**
+	     * This is used to start a new session
+	     * @param {string} RedirectUriSignIn Required: The redirect Uri,
+	     * which will be launched after authentication.
+	     * @param {array} TokenScopesArray Required: The token scopes, it is an
+	     * array of strings specifying all scopes for the tokens.
+	     * @returns {void}
+	     */
+
+	  }, {
+	    key: 'startSession',
+	    value: function startSession() {
+	      var URL = this.getFQDNSignIn();
+	      var tokenScopes = new _CognitoTokenScopes2.default(this.TokenScopesArray);
+	      var idToken = new _CognitoIdToken2.default();
+	      var accessToken = new _CognitoAccessToken2.default();
+	      var refreshToken = new _CognitoRefreshToken2.default();
+	      this.signInUserSession.setTokenScopes(tokenScopes);
+	      this.signInUserSession.setIdToken(idToken);
+	      this.signInUserSession.setAccessToken(accessToken);
+	      this.signInUserSession.setRefreshToken(refreshToken);
+	      this.launchUri(URL);
+	    }
+
 	    /**
 	     * @param {string} httpRequestResponse the http request response
 	     * @returns {void}
@@ -1655,7 +1676,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.storage.removeItem(scopeKey);
 	    }
 
-	    // Todo Chamath - done 
 	    /**
 	     * This is used to build a user session from tokens retrieved in the authentication result
 	     * @param {object} refreshToken authResult Successful auth response from server.
@@ -1709,7 +1729,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return refreshSession;
 	    }()
 
-	    // Todo Chamath - done 
 	    /**
 	     * Make the http POST request.
 	     * @param {JSON} header header JSON object
@@ -1799,7 +1818,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.userhandler.onFailure(err);
 	    }
 
-	    // done - chamath -2
 	    /**
 	     * The http POST request onSuccess callback when refreshing tokens.
 	     * @param {JSON} jsonData tokens

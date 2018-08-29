@@ -228,7 +228,6 @@
      * @returns {void}
      */
 
-    // Todo - Chamath - done-2
     async getSession() {
       const tokenScopesInputSet = new Set(this.TokenScopesArray);
       const cachedScopesSet = new Set(this.signInUserSession.tokenScopes.getScopes());
@@ -263,9 +262,31 @@
       // return undefined;
       throw undefined;
     }
+
+
+    /**
+     * This is used to start a new session
+     * @param {string} RedirectUriSignIn Required: The redirect Uri,
+     * which will be launched after authentication.
+     * @param {array} TokenScopesArray Required: The token scopes, it is an
+     * array of strings specifying all scopes for the tokens.
+     * @returns {void}
+     */
+
+    startSession() {
+      const URL = this.getFQDNSignIn();
+      const tokenScopes = new CognitoTokenScopes(this.TokenScopesArray);
+      const idToken = new CognitoIdToken();
+      const accessToken = new CognitoAccessToken();
+      const refreshToken = new CognitoRefreshToken();
+      this.signInUserSession.setTokenScopes(tokenScopes);
+      this.signInUserSession.setIdToken(idToken);
+      this.signInUserSession.setAccessToken(accessToken);
+      this.signInUserSession.setRefreshToken(refreshToken);
+      this.launchUri(URL);
+    }
   
 
-    // Todo - Chamath - done 2
     /**
      * @param {string} httpRequestResponse the http request response
      * @returns {void}
@@ -526,8 +547,6 @@
       this.storage.removeItem(scopeKey);
     }
   
-
-    // Todo Chamath - done 
     /**
      * This is used to build a user session from tokens retrieved in the authentication result
      * @param {object} refreshToken authResult Successful auth response from server.
@@ -551,8 +570,6 @@
       return signInUserSession;
     }
   
-
-    // Todo Chamath - done 
     /**
      * Make the http POST request.
      * @param {JSON} header header JSON object
@@ -631,7 +648,6 @@
     }
   
 
-    // done - chamath -2
     /**
      * The http POST request onSuccess callback when refreshing tokens.
      * @param {JSON} jsonData tokens
