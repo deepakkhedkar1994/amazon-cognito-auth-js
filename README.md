@@ -101,9 +101,10 @@ auth.startSession();
 
 **Note:** if you use authorization code grant flow it will automatically refresh expired toke using the refresh token. (if valid refresh token exists) 
 ```js
-// return Promise
 auth.getSession();
+// return Promise <signInUserSession>
 ```
+**Use case 3.** 
 
 **Cache tokens and scopes**<br/>
 For the cache tokens and scopes, use the `parseCognitoWebResponse(Response)` method, e.g. the response is the current window url:
@@ -113,7 +114,41 @@ var curUrl = window.location.href;
 auth.parseCognitoWebResponse(curUrl);
 ```
 
-**Use case 3.** 
+**Get cached token and scops**<br/>
+To get cached tokens and scopes, use the `getCachedSession()` method.
+
+```js
+auth.getCachedSession()
+// return signInUserSession
+//  {
+//     IdToken: idToken,
+//     AccessToken: accessToken,
+//     RefreshToken: refreshToken,
+//     TokenScopes: tokenScopes,
+//  };
+```
+**Check cached session validity**<br/>
+To check cached tokens validity use, use the `isValid()` method.
+``` js
+auth.getCachedSession().isValid()
+// return true or false
+```
+**Refresh current session** (Only available with **authorization code grant flow**)<br/>
+To refresh the current session using refresh token, use the  `refreshSession()` method.
+
+``` js
+const cachedSession = auth.getCachedSession();
+auth.refreshSession(cachedSession.getRefreshToken().getToken())
+// Return Promise <signInUserSession>
+//  {
+//     IdToken: idToken,
+//     AccessToken: accessToken,
+//     RefreshToken: refreshToken,
+//     TokenScopes: tokenScopes,
+//  };
+```
+
+**Use case 4.** 
 
 Sign-out using `signOut()`:
 ```js
