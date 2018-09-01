@@ -1,6 +1,7 @@
 # Promise wrappers for Amazon Cognito Auth SDK 
 [![npm version](https://badge.fury.io/js/amazon-cognito-auth-js-promises.svg)](https://badge.fury.io/js/amazon-cognito-auth-js-promises)
 [![Build Status](https://travis-ci.org/chamathsilva/amazon-cognito-auth-js.svg?branch=master)](https://travis-ci.org/chamathsilva/amazon-cognito-auth-js)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fchamathsilva%2Famazon-cognito-auth-js.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fchamathsilva%2Famazon-cognito-auth-js?ref=badge_shield)
 # Amazon Cognito Auth SDK for JavaScript
 You can now use Amazon Cognito Auth to easily add sign-in and sign-out to your mobile and web apps. Your user pool in Amazon Cognito is a fully managed user directory that can scale to hundreds of millions of users, so you don't have to worry about building, securing, and scaling a solution to handle user management and authentication.
 
@@ -164,3 +165,6 @@ By default, the SDK uses implicit flow(token flow), if you want to enable author
 var auth = new CognitoAuth(authData);
 auth.useCodeGrantFlow();
 ```
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fchamathsilva%2Famazon-cognito-auth-js.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fchamathsilva%2Famazon-cognito-auth-js?ref=badge_large)
