@@ -31,7 +31,7 @@
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
     "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack dist/amazon-cognito-auth.js",
     "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack dist/amazon-cognito-auth.min.js",
-    "build": "npm run clean && npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
+    "build": "npm run clean && npm run build:commonjs && npm run build:es",
     "doc": "jsdoc src -d docs",
     "lint": "eslint src",
     "test": "echo test:"
