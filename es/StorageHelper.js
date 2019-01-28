@@ -1,5 +1,19 @@
-import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
-import _createClass from 'babel-runtime/helpers/createClass';
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 /*!
  * Amazon Cognito Auth SDK for JavaScript
  * Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -22,10 +36,10 @@ var dataMemory = {};
 
 var MemoryStorage = function () {
   function MemoryStorage() {
-    _classCallCheck(this, MemoryStorage);
+    (0, _classCallCheck3.default)(this, MemoryStorage);
   }
 
-  _createClass(MemoryStorage, null, [{
+  (0, _createClass3.default)(MemoryStorage, null, [{
     key: 'setItem',
 
 
@@ -77,7 +91,6 @@ var MemoryStorage = function () {
       return dataMemory;
     }
   }]);
-
   return MemoryStorage;
 }();
 
@@ -91,7 +104,7 @@ var StorageHelper = function () {
    * @returns {object} the storage
    */
   function StorageHelper() {
-    _classCallCheck(this, StorageHelper);
+    (0, _classCallCheck3.default)(this, StorageHelper);
 
     try {
       this.storageWindow = window.localStorage;
@@ -108,14 +121,13 @@ var StorageHelper = function () {
    */
 
 
-  _createClass(StorageHelper, [{
+  (0, _createClass3.default)(StorageHelper, [{
     key: 'getStorage',
     value: function getStorage() {
       return this.storageWindow;
     }
   }]);
-
   return StorageHelper;
 }();
 
-export default StorageHelper;
+exports.default = StorageHelper;

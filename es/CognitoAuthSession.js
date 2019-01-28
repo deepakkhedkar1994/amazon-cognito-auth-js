@@ -1,5 +1,36 @@
-import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
-import _createClass from 'babel-runtime/helpers/createClass';
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _CognitoTokenScopes = require('./CognitoTokenScopes');
+
+var _CognitoTokenScopes2 = _interopRequireDefault(_CognitoTokenScopes);
+
+var _CognitoAccessToken = require('./CognitoAccessToken');
+
+var _CognitoAccessToken2 = _interopRequireDefault(_CognitoAccessToken);
+
+var _CognitoIdToken = require('./CognitoIdToken');
+
+var _CognitoIdToken2 = _interopRequireDefault(_CognitoIdToken);
+
+var _CognitoRefreshToken = require('./CognitoRefreshToken');
+
+var _CognitoRefreshToken2 = _interopRequireDefault(_CognitoRefreshToken);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/** @class */
 /*!
  * Amazon Cognito Auth SDK for JavaScript
  * Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -16,13 +47,6 @@ import _createClass from 'babel-runtime/helpers/createClass';
  * License for the specific language governing permissions
  * and limitations under the License.
  */
-
-import CognitoTokenScopes from './CognitoTokenScopes';
-import CognitoAccessToken from './CognitoAccessToken';
-import CognitoIdToken from './CognitoIdToken';
-import CognitoRefreshToken from './CognitoRefreshToken';
-
-/** @class */
 
 var CognitoAuthSession = function () {
   /**
@@ -41,27 +65,27 @@ var CognitoAuthSession = function () {
         TokenScopes = _ref.TokenScopes,
         State = _ref.State;
 
-    _classCallCheck(this, CognitoAuthSession);
+    (0, _classCallCheck3.default)(this, CognitoAuthSession);
 
     if (IdToken) {
       this.idToken = IdToken;
     } else {
-      this.idToken = new CognitoIdToken();
+      this.idToken = new _CognitoIdToken2.default();
     }
     if (RefreshToken) {
       this.refreshToken = RefreshToken;
     } else {
-      this.refreshToken = new CognitoRefreshToken();
+      this.refreshToken = new _CognitoRefreshToken2.default();
     }
     if (AccessToken) {
       this.accessToken = AccessToken;
     } else {
-      this.accessToken = new CognitoAccessToken();
+      this.accessToken = new _CognitoAccessToken2.default();
     }
     if (TokenScopes) {
       this.tokenScopes = TokenScopes;
     } else {
-      this.tokenScopes = new CognitoTokenScopes();
+      this.tokenScopes = new _CognitoTokenScopes2.default();
     }
     if (State) {
       this.state = State;
@@ -75,7 +99,7 @@ var CognitoAuthSession = function () {
    */
 
 
-  _createClass(CognitoAuthSession, [{
+  (0, _createClass3.default)(CognitoAuthSession, [{
     key: 'getIdToken',
     value: function getIdToken() {
       return this.idToken;
@@ -204,8 +228,7 @@ var CognitoAuthSession = function () {
       }
     }
   }]);
-
   return CognitoAuthSession;
 }();
 
-export default CognitoAuthSession;
+exports.default = CognitoAuthSession;
