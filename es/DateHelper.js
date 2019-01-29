@@ -1,5 +1,19 @@
-import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
-import _createClass from 'babel-runtime/helpers/createClass';
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 /*!
  * Amazon Cognito Auth SDK for JavaScript
  * Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -23,10 +37,10 @@ var weekNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 var DateHelper = function () {
   function DateHelper() {
-    _classCallCheck(this, DateHelper);
+    (0, _classCallCheck3.default)(this, DateHelper);
   }
 
-  _createClass(DateHelper, [{
+  (0, _createClass3.default)(DateHelper, [{
     key: 'getNowString',
 
     /**
@@ -62,8 +76,7 @@ var DateHelper = function () {
       return dateNow;
     }
   }]);
-
   return DateHelper;
 }();
 
-export default DateHelper;
+exports.default = DateHelper;

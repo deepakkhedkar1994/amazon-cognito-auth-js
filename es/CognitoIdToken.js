@@ -1,5 +1,18 @@
-import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
-import _createClass from 'babel-runtime/helpers/createClass';
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /*!
  * Amazon Cognito Auth SDK for JavaScript
@@ -24,7 +37,7 @@ var CognitoIdToken = function () {
    * @param {string=} IdToken The JWT Id token
    */
   function CognitoIdToken(IdToken) {
-    _classCallCheck(this, CognitoIdToken);
+    (0, _classCallCheck3.default)(this, CognitoIdToken);
 
     // Assign object
     this.jwtToken = IdToken || '';
@@ -36,7 +49,7 @@ var CognitoIdToken = function () {
    */
 
 
-  _createClass(CognitoIdToken, [{
+  (0, _createClass3.default)(CognitoIdToken, [{
     key: 'getJwtToken',
     value: function getJwtToken() {
       return this.jwtToken;
@@ -83,8 +96,7 @@ var CognitoIdToken = function () {
       }
     }
   }]);
-
   return CognitoIdToken;
 }();
 
-export default CognitoIdToken;
+exports.default = CognitoIdToken;

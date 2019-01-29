@@ -3,7 +3,8 @@
     [ "env", { "modules": false } ],
     "stage-0",
     "react",
-    "flow"
+    "flow",
+    "es2015"
   ],
 
   "env": {
