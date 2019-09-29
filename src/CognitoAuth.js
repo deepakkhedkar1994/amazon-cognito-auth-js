@@ -623,7 +623,7 @@
      */
     createCORSRequest(method, url) {
       let xhr = new XMLHttpRequest();
-      xhr.open(method, url, true);
+      //xhr.open(method, url, true);
       if (this.getCognitoConstants().WITHCREDENTIALS in xhr) {
         // XHR for Chrome/Firefox/Opera/Safari.
         xhr.open(method, url, true);
